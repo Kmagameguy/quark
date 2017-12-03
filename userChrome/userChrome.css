@@ -141,14 +141,12 @@
 toolbar .toolbarbutton-1 > .toolbarbutton-icon {
 	max-width: calc(2 * var(--toolbarbutton-inner-padding) + 11px) !important;
 }
-
-#back-button { margin-left: 1px !important;}
-#forward-button { margin-right: 2px !important;}
-
 /* Hide Unnecessary Buttons */
 
 #PersonalToolbar .toolbarbutton-badge,
 #nav-bar-overflow-button,
+#back-button,
+#forward-button,
 #page-action-buttons,
 #reader-mode-button,
 #home-button,
