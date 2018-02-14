@@ -1,4 +1,4 @@
-# Quark
+# Quark 
 Personal collection of userChrome &amp; userContent CSS files to trim down Firefox Quantum's bloated UI. Great for power users -- these tweaks remove most UI elements that already have keyboard shortcuts or menu items. 
   
 Original styling and inspiration borrowed from user GiantSpeck on Reddit:  
