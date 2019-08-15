@@ -9,100 +9,108 @@
 
 /* Reduce width of pinned tabs by reducing the left and right padding */
 
-#TabsToolbar .tab-content[pinned] {
-	padding: 	0 6px !important;
+.toolbar-items .tab-content[pinned] {
+  padding: 0 6px !important;
 }
 
 /* Move tabs over to right to make room for address bar */
 
-#TabsToolbar {
-	margin: 		0 20px 0 40vw !important; /*original was 0 44px 0 40vw */
-	height: 		30px !important;
-	padding-left:	2px !important;
+.toolbar-items {
+  margin: 0 20px 0 36vw !important;
+  /*original was 0 44px 0 40vw */
+  height: 30px !important;
+  padding-left: 2px !important;
 }
 
 /* Move address bar to titlebar with tabs */
 
 #nav-bar {
-	margin: 		-30px 60vw -2px 80px !important;
-	height:			29px !important;
-	border-bottom:	1px solid #9E9E9E !important;
+  margin: -30px 60vw -2px 80px !important;
+  height: 29px !important;
+  border-bottom: 1px solid #9E9E9E !important;
 }
 
 /* URL bar width adjustments */
 
 #urlbar {
-	background:		none !important;
-	border:			none !important;
-	margin-left:	-5px !important;
-	min-width:		350px !important;
-	font-size:		11px !important;
+  background: none !important;
+  border: none !important;
+  margin-left: -5px !important;
+  min-width: 470px !important;
+  font-size: 11px !important;
 }
 
 #urlbar:hover {
-	background:		none !important;
-	border:			none !important;
-	box-shadow:		none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 #urlbar[focused="true"] {
-	background:		none !important;
-	border:			none !important;
-	box-shadow:		none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Hide bookmark folder icons */
 
-.bookmark-item > .toolbarbutton-icon {
-	display: 	none !important;
+.bookmark-item>.toolbarbutton-icon {
+  display: none !important;
 }
 
 /* Increase bookmarks toolbar height */
 
 #PersonalToolbar {
-	margin-top: 2px !important;
-	height:		28px !important;
-	border-top:	1px solid #9E9E9E !important;
+  margin-top: 2px !important;
+  height: 28px !important;
+  border-top: 1px solid #9E9E9E !important;
 }
 
 /* Minor bookmarks toolbar spacing adjustments */
 
-#personal-bookmarks toolbarbutton.bookmark-item, #personal-bookmarks toolbarbutton {
-	background: 	 none !important;
-	box-shadow: 	 none !important;
-	margin: 		 -1px 0px -1px 2px !important;
-	padding: 		 2px 5px 0 5px !important;
-	-moz-appearance: none !important; }
+#personal-bookmarks toolbarbutton.bookmark-item,
+#personal-bookmarks toolbarbutton {
+  background: none !important;
+  box-shadow: none !important;
+  margin: -1px 0px -1px 2px !important;
+  padding: 2px 5px 0 5px !important;
+  -moz-appearance: none !important;
+}
 
 #personal-bookmarks toolbarbutton:hover {
-	-moz-appearance: none !important;
-	background: 	 none !important;
-	text-shadow: 	 none !important;
-	color: 			 #000 !important;	}
+  -moz-appearance: none !important;
+  background: none !important;
+  text-shadow: none !important;
+  color: #000 !important;
+}
 
 /* Add vibrancy to toolbar, titlebar, and navbar */
 
-#TabsToolbar, #titlebar, #nav-bar {
-	-moz-appearance: -moz-mac-vibrancy-light !important;
+#TabsToolbar,
+#titlebar,
+#nav-bar {
+  -moz-appearance: -moz-mac-vibrancy-light !important;
 }
 
 /* Remove line under address bar */
 
-#navigator-toolbox::after{
-	content:	none;
+#navigator-toolbox::after {
+  content: none;
 }
 
 #nav-bar {
-	background: none !important;
-	border-bottom: none !important;
+  background: none !important;
+  border-bottom: none !important;
 }
 
-/* Affix hamburger menu to top right */
+/* Hide More Stuff */
 
-#PanelUI-button{
-	position: 	fixed;
-	top: 		2px;
-	right: 		4px;
+#PanelUI-button {
+  display: none !important;
+}
+
+#alltabs-button {
+  display: none !important;
 }
 
 /* Clear away some dead space */
@@ -113,34 +121,44 @@
 /* Hide titlebar placeholder for caption buttons so that padding between tabs and address bar isn't so ridiculously large */
 
 .titlebar-placeholder[type="caption-buttons"] {
-	-moz-box-ordinal-group: 1 !important;
+  -moz-box-ordinal-group: 1 !important;
 }
 
 /* Give the identity icon some space */
 
-#identity-icon { margin-right: 2px !important;}
+#identity-icon {
+  margin-right: 2px !important;
+}
 
 /* Customize identity box */
 
 #identity-box-labels {
-	font-size: 10px !important;
-	text-transform: uppercase !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
 }
 
 #identity-box {
-	max-width: 38px !important;
-	filter: grayscale(30%) opacity(50%) !important;
+  max-width: 38px !important;
+  filter: grayscale(30%) opacity(50%) !important;
 }
 
 #identity-box image {
-	max-width: 12px;
+  max-width: 12px;
 }
 
 /* Customize toolbar icon size */
 
-toolbar .toolbarbutton-1 > .toolbarbutton-icon {
-	max-width: calc(2 * var(--toolbarbutton-inner-padding) + 11px) !important;
+toolbar .toolbarbutton-1>.toolbarbutton-icon {
+  max-width: calc(2 * var(--toolbarbutton-inner-padding) + 11px) !important;
 }
+
+.scrollbutton-up>.toolbarbutton-icon,
+.scrollbutton-down>.toolbarbutton-icon {
+  max-width: 10px !important;
+  padding: 0px;
+  margin: 2px;
+}
+
 /* Hide Unnecessary Buttons */
 
 #PersonalToolbar .toolbarbutton-badge,
@@ -153,12 +171,21 @@ toolbar .toolbarbutton-1 > .toolbarbutton-icon {
 #downloads-button,
 #new-tab-button,
 .tab-close-button,
-.tabs-newtab-button {display: none !important;}
+.titlebar-spacer,
+.tabs-newtab-button {
+  display: none !important;
+}
 
 /* Make Toolbar Buttons and Favicons Grayscale */
 
-.toolbarbutton-1{filter: grayscale(100%) !important;}
+.toolbarbutton-1 {
+  filter: grayscale(100%) !important;
+}
 
-.tab-icon-image{filter: grayscale(100%) opacity(70%) !important;}
+.tab-icon-image {
+  filter: grayscale(100%) opacity(70%) !important;
+}
 
-.tab-label-container{font-size: 10px !important;}
+.tab-label-container {
+  font-size: 10px !important;
+}
