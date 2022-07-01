@@ -1,86 +1,20 @@
-/* Original code "forked" from GiantSpeck: https://pastebin.com/342kbHWd */
-/* Extreme minimalization of Firefox UI; removes many elements that have menu buttons or Keyboard shortcuts */
-/* Works with Firefox 57+ */
-/* Requires: */
-/*   - Compact Density */
-/*   - MacOSX Light Theme: https://addons.mozilla.org/en-US/firefox/addon/mac-osx-light/ */
-
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-
-/* Reduce width of pinned tabs by reducing the left and right padding */
-
-.toolbar-items .tab-content[pinned] {
-  padding: 0 6px !important;
+/*
+ * Styles borrowed from:
+ *   - GiantSpeck            : https://pastebin.com/342kbHWd
+ *   - lr-tech/OnelineProton : https://github.com/lr-tech/OnelineProton/
+ * Works with Firefox 89+
+*/
+:root {
+  --navbarWidth     : 600px;
 }
 
-/* URL bar width adjustments */
-
-#urlbar {
-  font-size: 11px !important;
-}
-
-#urlbar:hover {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-#urlbar[focused="true"] {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Hide bookmark folder icons */
-
-.bookmark-item>.toolbarbutton-icon {
-  display: none !important;
-}
-
-/* Minor bookmarks toolbar spacing adjustments */
-
-#personal-bookmarks toolbarbutton.bookmark-item,
-#personal-bookmarks toolbarbutton {
-  background: none !important;
-  box-shadow: none !important;
-  margin: -1px 0px 0px 2px !important;
-  -moz-appearance: none !important;
-}
-
-#personal-bookmarks toolbarbutton:hover {
-  -moz-appearance: none !important;
-  background: none !important;
-  text-shadow: none !important;
-  color: #000 !important;
-}
-
-/* Customize identity box */
-
-#identity-box, #tracking-protection-icon-box {
-  filter: grayscale(30%) opacity(50%) !important;
-}
-
-#identity-box image, #tracking-protection-icon-box image {
-  max-width: 12px;
-}
-
-/* Customize toolbar icon size */
-
-toolbar .toolbarbutton-1>.toolbarbutton-icon {
-  max-width: calc(2 * var(--toolbarbutton-inner-padding) + 11px) !important;
-}
-
-.scrollbutton-up>.toolbarbutton-icon,
-.scrollbutton-down>.toolbarbutton-icon {
-  max-width: 10px !important;
-  padding: 0px;
-  margin: 2px;
-}
-
-/* Hide Unnecessary Buttons */
-
-#PersonalToolbar .toolbarbutton-badge,
+#back-button[disabled="true"],
+#forward-button[disabled="true"],
 #page-action-buttons,
+.tab-close-button,
+.titlebar-buttonbox,
+.bookmark-item > .toolbarbutton-icon,
+#PersonalToolbar .toolbarbutton-badge,
 #alltabs-button,
 #reader-mode-button,
 #downloads-button,
@@ -88,16 +22,127 @@ toolbar .toolbarbutton-1>.toolbarbutton-icon {
 #new-tab-button,
 .tab-close-button,
 .titlebar-spacer,
-.tabs-newtab-button {
-  display: none !important;
+.tabs-newtab-button { 
+  display: none !important
 }
 
-/* Make Toolbar Buttons and Favicons Grayscale */
+/*============================================================================*/
+
+
+/* Oneline tweak */
+
+#TabsToolbar {
+  margin-left : var(--navbarWidth) !important;
+  margin-top  : 5px;
+}
+
+#nav-bar {
+  margin-right: calc(100vw - var(--navbarWidth)) !important;
+  background  : none !important;
+  box-shadow  : none !important;
+}
+
+#urlbar-container {
+  min-width   : 0px !important;
+}
+
+:root[uidensity="compact"] #nav-bar {
+  margin-top  : -37px !important;
+  height      : 37px !important;
+}
+
+:root:not([uidensity="compact"]):not([uidensity="touch"]) #nav-bar {
+  margin-top  : -44px !important;
+  height      : 44px !important;
+}
+
+:root[uidensity="touch"] #nav-bar {
+  margin-top  : -49px !important;
+  height      : 49px !important;
+}
+
+
+/* Dragging space */
+:root[sizemode="maximized"] #TabsToolbar {
+  margin-top: 1px;
+}
+
+/* Simplifying interface */
+
+#navigator-toolbox {
+  border      : none !important;
+}
+
+#urlbar-background {
+  border      : none !important;
+}
+
+#urlbar:not(:hover):not([breakout][breakout-extend]) > #urlbar-background {
+  box-shadow  : none !important;
+  background  : none !important;
+}
+
+
+/* Hide urlbar elements when not active */
+
+.urlbar-icon, #userContext-indicator, #userContext-label {
+  fill        : transparent !important;
+  background  : transparent !important;
+  color       : transparent !important;
+}
+
+#urlbar:hover .urlbar-icon,
+#urlbar:active .urlbar-icon, 
+#urlbar[focused] .urlbar-icon {
+  fill        : var(--toolbar-color) !important;
+}
+
+.toolbar-items .tab-content[pinned] {
+  padding     : 0 6px !important;
+}
+
+#personal-bookmarks toolbarbutton.bookmark-item,
+#personal-bookmarks toolbarbutton {
+  background  : none !important;
+  box-shadow  : none !important;
+  margin      : -1px 0px 0px 2px !important;
+  -moz-appearance: none !important;
+}
+
+#personal-bookmarks toolbarutton:hover {
+  background  : none !important;
+  text-shadow : none !important;
+  color       : #000 !important;
+  -moz-appearance: none !important;
+}
+
+#identity-box image, #tracking-protection-icon-box image {
+  max-width   : 12px;
+}
+
+toolbar .toolbarbutton-1 > .toolbarbutton-icon {
+  max-width   : calc(2 * var(--toolbarbutton-inner-padding) + 11px) !important;
+}
+
+.scrollbutton-up > .toolbarbutton-icon,
+.scrollbutton-down > .toolbarbutton-icon {
+  max-width   : 10px !important;
+  padding     : 0px;
+  margin      : 2px;
+}
+
+#identity-box, #tracking-protection-icon-box {
+  filter      : grayscale(30%) opacity(50%) !important;
+}
 
 .tab-icon-stack {
-  filter: grayscale(100%) opacity(70%) !important;
+  filter      : grayscale(100%) opacity(70%) !important;
 }
 
 .tab-label-container {
-  font-size: 10px !important;
+  font-size   : 10px !important
+}
+
+#urlbar {
+  font-size   : 10px !important;
 }
