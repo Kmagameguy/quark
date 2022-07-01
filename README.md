@@ -6,6 +6,7 @@ Original styling and inspiration borrowed from user GiantSpeck on Reddit:
 [Original Source](https://pastebin.com/342kbHWd)  
   
 ## Installation
+1. (Firefox v69+) Open `about:config` in the URL bar and change `toolkit.legacyUserProfileCustomizations.stylesheets` to `TRUE` by double-clicking the line item
 1. Create a "Chrome" folder inside your Firefox profile directory  
 1. Download and place the userChrome.css file from this repo into the "Chrome" folder
 1. Restart Firefox
